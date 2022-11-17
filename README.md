@@ -125,8 +125,12 @@ For more detailed information on controlling Mech-Eye Industrial 3D Camera with 
     * Acquire the 3D data from the camera.
     grab_data(Image3d, Region, Contours, AcqHandle, ObjectModel3D)
 
-    * Save the point cloud result in "PointCloud.ply"
-    write_object_model_3d (ObjectModel3D, 'ply', 'PointCloud.ply', [], [])
+	get_object_model_3d_params(ObjectModel3D, 'num_points', NumOfPoints)
+
+	if(NumOfPoints != 0)
+		* Save the point cloud result in "PointCloud.ply"
+		write_object_model_3d (ObjectModel3D, 'ply', 'PointCloud.ply', [], [])
+	endif
     ```
 - Disconnect from the camera:
     
