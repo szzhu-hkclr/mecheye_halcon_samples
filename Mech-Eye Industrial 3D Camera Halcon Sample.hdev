@@ -16,7 +16,7 @@
 <l>endif</l>
 <c></c>
 <c>* Open the Mech-Eye Industrial 3D Camera.</c>
-<l>open_framegrabber ('GigEVision2', 1, 1, 0, 0, 0, 0, 'default', -1, 'default', -1, 'false', 'default', MechEyeCameraInfos[1], 0, -1, AcqHandle)</l>
+<l>open_framegrabber ('GigEVision2', 1, 1, 0, 0, 0, 0, 'default', -1, 'default', -1, 'false', 'default', MechEyeCameraInfos[0], 0, -1, AcqHandle)</l>
 <c></c>
 <l>get_framegrabber_param (AcqHandle, 'available_param_names', ParameterValues)</l>
 <c></c>
