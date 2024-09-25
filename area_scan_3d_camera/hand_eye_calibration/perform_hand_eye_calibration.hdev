@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<hdevelop file_version="1.2" halcon_version="20.11.1.2">
+<hdevelop file_version="1.2" halcon_version="24.05">
 <procedure name="main">
 <interface/>
 <body>
@@ -7,9 +7,8 @@
 <c>* This sample program is used to perform the hand-eye calibration. </c>
 <c>* Please refer to the README file for detailed explanation of the entire process.</c>
 <c>*</c>
-<c></c>
-<c>* Discover all available cameras and store them in the "MechEyeCameras" variable.</c>
-<c>* You can replace "MechEye" with the "user_name" or "unique_name" of the camera that needs to be connected.</c>
+
+<c>* Discover cameras using the updated Mech-Eye SDK (2.4.0) </c>
 <l>DeviceInfo := 'MechEye'</l>
 <l>info_framegrabber ('GigEVision2', 'device', Info, DeviceInfos)</l>
 <l>tuple_regexp_select(DeviceInfos, DeviceInfo, MechEyeCameras)</l>
@@ -24,10 +23,10 @@
 <c></c>
 <c>* Obtain the available parameter names.</c>
 <l>get_framegrabber_param (AcqHandle, 'available_param_names', ParameterValues)</l>
-<c>* Obtain the firmware version of the camera.</c>
 <l>get_framegrabber_param (AcqHandle, 'DeviceFirmwareVersion', FirmwareVersion)</l>
+
 <c>* Stop execution if the firmware version is lower than 2.1.0.</c>
-<l>if (FirmwareVersion &lt; '2.1.0')</l>
+<l>if (FirmwareVersion < '2.1.0')</l>
 <l>    stop()</l>
 <l>endif</l>
 <c></c>
@@ -427,11 +426,5 @@
 <l>clear_object_model_3d (ObjectModel3D)</l>
 <l>return ()</l>
 </body>
-<docu id="captureTranformedPointCloud">
-<parameters>
-<parameter id="AcqHandle"/>
-<parameter id="ExtriResult"/>
-</parameters>
-</docu>
 </procedure>
 </hdevelop>
